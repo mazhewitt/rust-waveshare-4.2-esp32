@@ -1,0 +1,28 @@
+[package]
+name = "Hellow World Waveshare 4.2"
+version = "0.1.0"
+authors = ["mazhewitt <mazda@aduki.co.uk>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+pio = ["esp-idf-sys/pio"]
+
+[dependencies]
+esp-idf-sys = { version = "0.32.1", features = ["binstart"] }
+esp-idf-hal = "0.40"
+epd-waveshare = "0.5.0"
+embedded-graphics = "0.7"
+log = "0.4"
+embedded-hal = "0.2.7"
+anyhow = "1.0.70"
+
+[build-dependencies]
+embuild = "0.30.4"
